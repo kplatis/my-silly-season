@@ -1,4 +1,5 @@
-import { Flex } from "@mantine/core";
+import DriverCard from "@/components/drivers/DriverCard";
+import { Flex, Image } from "@mantine/core";
 
 export default function Team() {
   return (
@@ -11,9 +12,15 @@ export default function Team() {
       direction="row"
       wrap="wrap"
     >
-      <div>team</div>
-      <div>team</div>
-      <div>team</div>
+      <DriverCard
+        name="Lewis Hamilton"
+        imagePath="/public/lewis_hamilton.jpg"
+      />
+      <Image h={160} w={160} src="/public/ferrari.jpg" alt="No way!" />
+      <DriverCard
+        name="Lewis Hamilton"
+        imagePath="/public/lewis_hamilton.jpg"
+      />
     </Flex>
   );
 }
