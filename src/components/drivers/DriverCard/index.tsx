@@ -14,9 +14,9 @@ export default function DriverCard({
   removeDriverFn,
 }: DriverCardProps) {
   return (
-    <Card shadow="sm" padding="xl" bg={teamColor}>
+    <Card shadow="sm" padding="xl" bg={teamColor} w={200} h={250}>
       <Card.Section>
-        <Image src={imagePath} h={160} alt="No way!" />
+        <Image src={imagePath} h={100} alt="No way!" />
       </Card.Section>
       <Center>
         <Text fw={800} size="lg" mt="md" c={"#FFF"}>

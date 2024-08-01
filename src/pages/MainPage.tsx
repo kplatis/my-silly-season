@@ -10,7 +10,7 @@ export default function MainPage() {
     <Container fluid={true}>
       <Grid>
         {currentGrid.map((team) => (
-          <Grid.Col key={team.id} span={6}>
+          <Grid.Col key={team.id} span={4}>
             <TeamCard team={team} />
           </Grid.Col>
         ))}
