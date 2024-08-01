@@ -1,12 +1,10 @@
-import { Card, Center, Text } from "@mantine/core";
+import { Card, Center, Text, Image } from "@mantine/core";
 
 export default function UnknownDriverCard() {
   return (
-    <Card shadow="sm" padding="xl" h="full">
+    <Card shadow="sm" padding="xl" w={240} h={236}>
       <Card.Section>
-        <Center>
-          <Text>?</Text>
-        </Center>
+        <Image src={"/public/unknown.jpg"} h={160} alt="No way!" />
       </Card.Section>
       <Center>
         <Text fw={500} size="lg" mt="md">

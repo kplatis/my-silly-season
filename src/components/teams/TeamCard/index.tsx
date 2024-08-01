@@ -37,7 +37,7 @@ export default function TeamCard({
         <UnknownDriverCard />
       )}
 
-      <Image h={80} w={80} src={teamLogo} alt={`${teamName} logo`} />
+      <Image h={60} w={60} src={teamLogo} alt={`${teamName} logo`} />
       {secondDriver ? (
         <DriverCard
           name={secondDriver.name}

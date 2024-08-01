@@ -1,7 +1,8 @@
-import { Driver } from "@/types/drivers";
 import { Card, Center, Image, Text } from "@mantine/core";
 
-type DriverCardProps = Omit<Driver, "nextYearTeam" | "id"> & {
+type DriverCardProps = {
+  name: string;
+  imagePath: string;
   teamColor: string;
 };
 
