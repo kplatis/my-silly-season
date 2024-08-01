@@ -12,7 +12,7 @@ const gridSlice = createSlice({
   reducers: {
     removeDriver: (
       state,
-      action: PayloadAction<{ teamId: number; driverId: number }>
+      action: PayloadAction<{ teamId: number; driverId: number }>,
     ) => {
       const { teamId, driverId } = action.payload;
       const team = state.find((team) => team.id === teamId);
@@ -22,7 +22,7 @@ const gridSlice = createSlice({
     },
     addDriver: (
       state,
-      action: PayloadAction<{ teamId: number; driverId: number }>
+      action: PayloadAction<{ teamId: number; driverId: number }>,
     ) => {
       const { teamId, driverId } = action.payload;
       const team = state.find((team) => team.id === teamId);

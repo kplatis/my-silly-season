@@ -18,7 +18,7 @@ export default function SelectDriverButton({
 
   const driversWithoutTeam = useMemo(() => {
     const driversIdsWithTeam = _.flatMap(currentGrid, (team) =>
-      team.drivers.map((driver) => driver.id)
+      team.drivers.map((driver) => driver.id),
     );
     return drivers.filter((driver) => !driversIdsWithTeam.includes(driver.id));
   }, [currentGrid]);
