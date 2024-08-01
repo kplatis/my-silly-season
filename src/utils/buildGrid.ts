@@ -4,7 +4,7 @@ import { Team } from "@/types/teams";
 
 export default function buildGrid(
   teams: Team[],
-  drivers: Driver[]
+  drivers: Driver[],
 ): TeamWithDrivers[] {
   return teams.map((team) => ({
     ...team,
