@@ -1,4 +1,4 @@
-import { Button, Card, Center, Image, Text } from "@mantine/core";
+import { Button, Card, Image, Text } from "@mantine/core";
 
 type DriverCardProps = {
   name: string;
