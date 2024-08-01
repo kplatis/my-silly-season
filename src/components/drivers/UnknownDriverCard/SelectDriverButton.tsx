@@ -33,7 +33,7 @@ export default function SelectDriverButton({
       placeholder={
         driversWithoutTeam.length == 0
           ? "There are no free drivers"
-          : "Select a free driver"
+          : "Select driver"
       }
       onChange={onSelectDriver}
       disabled={driversWithoutTeam.length == 0}
