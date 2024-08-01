@@ -1,7 +1,7 @@
 import TeamCard from "@/components/teams/TeamCard";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
-import { Container, Grid, Text } from "@mantine/core";
+import { Container, Grid } from "@mantine/core";
 import Header from "@/components/layout/Header";
 
 export default function MainPage() {
@@ -13,7 +13,7 @@ export default function MainPage() {
       <Container fluid={true} py={30}>
         <Grid justify="center" gutter="lg">
           {currentGrid.map((team) => (
-            <Grid.Col key={team.id} span={{ base: 12, md: 6, lg: 4 }}>
+            <Grid.Col key={team.id} span={{ base: 12, md: 6 }}>
               <TeamCard team={team} />
             </Grid.Col>
           ))}

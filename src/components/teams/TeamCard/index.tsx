@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { Flex, Image } from "@mantine/core";
+import { Flex, Grid, Image } from "@mantine/core";
 import DriverCard from "@/components/drivers/DriverCard";
 import UnknownDriverCard from "@/components/drivers/UnknownDriverCard";
 import { AppDispatch } from "@/store/store";
@@ -20,14 +20,11 @@ export default function TeamCard({ team }: TeamCardProps) {
   };
 
   return (
-    <Flex
-      w="fit-content"
-      mih={50}
-      gap="xl"
+    <Grid
+      grow
       justify="center"
       align="center"
-      direction="row"
-      wrap="wrap"
+      m="auto"
       p={15}
       style={{
         borderTop: `solid 3px ${team.color}`,
@@ -36,28 +33,59 @@ export default function TeamCard({ team }: TeamCardProps) {
         backgroundColor: "#D3D3D3",
       }}
     >
-      {firstDriver ? (
-        <DriverCard
-          name={firstDriver.name}
-          imagePath={firstDriver.imagePath}
-          teamColor={team.color}
-          removeDriverFn={() => handleRemoveDriver(firstDriver.id, team.id)}
+      <Grid.Col span={{ base: 12, sm: 4 }}>
+        {firstDriver ? (
+          <DriverCard
+            name={firstDriver.name}
+            imagePath={firstDriver.imagePath}
+            teamColor={team.color}
+            removeDriverFn={() => handleRemoveDriver(firstDriver.id, team.id)}
+          />
+        ) : (
+          <UnknownDriverCard teamId={team.id} />
+        )}
+      </Grid.Col>
+      <Grid.Col span="content">
+        <Image
+          m="auto"
+          h={60}
+          w={60}
+          src={team.logoPath}
+          alt={`${team.name} logo`}
         />
-      ) : (
-        <UnknownDriverCard teamId={team.id} />
-      )}
+      </Grid.Col>
+      <Grid.Col span={{ base: 12, sm: 4 }}>
+        {secondDriver ? (
+          <DriverCard
+            name={secondDriver.name}
+            imagePath={secondDriver.imagePath}
+            teamColor={team.color}
+            removeDriverFn={() => handleRemoveDriver(secondDriver.id, team.id)}
+          />
+        ) : (
+          <UnknownDriverCard teamId={team.id} />
+        )}
+      </Grid.Col>
+    </Grid>
 
-      <Image h={60} w={60} src={team.logoPath} alt={`${team.name} logo`} />
-      {secondDriver ? (
-        <DriverCard
-          name={secondDriver.name}
-          imagePath={secondDriver.imagePath}
-          teamColor={team.color}
-          removeDriverFn={() => handleRemoveDriver(secondDriver.id, team.id)}
-        />
-      ) : (
-        <UnknownDriverCard teamId={team.id} />
-      )}
-    </Flex>
+    // <Flex
+    //   w="fit-content"
+    //   m="auto"
+    //   mih={50}
+    //   gap="xl"
+    //   justify="center"
+    //   align="center"
+    //   direction="row"
+    //   wrap="wrap"
+    //   p={15}
+    //   style={{
+    //     borderTop: `solid 3px ${team.color}`,
+    //     borderBottom: `solid 3px ${team.color}`,
+    //     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+    //     backgroundColor: "#D3D3D3",
+    //   }}
+    // >
+
+    // </Flex>
   );
 }

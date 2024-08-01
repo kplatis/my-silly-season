@@ -7,7 +7,7 @@ type UnknownDriverCardProps = {
 
 export default function UnknownDriverCard({ teamId }: UnknownDriverCardProps) {
   return (
-    <Card shadow="sm" padding="xl" w={200} h={250}>
+    <Card shadow="sm" padding="xl" w={200} h={250} m="auto">
       <Card.Section>
         <Image
           src={"/public/images/drivers/unknown.jpg"}
