@@ -1,4 +1,4 @@
-import { Card, Center, Text, Image, Space, Stack } from "@mantine/core";
+import { Card, Center, Text, Image, Stack } from "@mantine/core";
 import SelectDriverButton from "./SelectDriverButton";
 
 type UnknownDriverCardProps = {
