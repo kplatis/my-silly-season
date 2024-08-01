@@ -1,23 +1,16 @@
 import DriverCard from "@/components/drivers/DriverCard";
 import UnknownDriverCard from "@/components/drivers/UnknownDriverCard";
-import { Driver } from "@/types/drivers";
+import { TeamWithDrivers } from "@/types/common";
 import { Flex, Image } from "@mantine/core";
 
 type TeamCardProps = {
-  teamLogo: string;
-  teamName: string;
-  teamColor: string;
-  firstDriver?: Driver;
-  secondDriver?: Driver;
+  team: TeamWithDrivers;
+  removeDriverFn: (driverId: number, teamId: number) => void;
 };
 
-export default function TeamCard({
-  firstDriver,
-  secondDriver,
-  teamLogo,
-  teamName,
-  teamColor,
-}: TeamCardProps) {
+export default function TeamCard({ team, removeDriverFn }: TeamCardProps) {
+  const firstDriver = team.drivers[0];
+  const secondDriver = team.drivers[1];
   return (
     <Flex
       mih={50}
@@ -31,18 +24,20 @@ export default function TeamCard({
         <DriverCard
           name={firstDriver.name}
           imagePath={firstDriver.imagePath}
-          teamColor={teamColor}
+          teamColor={team.color}
+          removeDriverFn={() => removeDriverFn(firstDriver.id, team.id)}
         />
       ) : (
         <UnknownDriverCard />
       )}
 
-      <Image h={60} w={60} src={teamLogo} alt={`${teamName} logo`} />
+      <Image h={60} w={60} src={team.logoPath} alt={`${team.name} logo`} />
       {secondDriver ? (
         <DriverCard
           name={secondDriver.name}
           imagePath={secondDriver.imagePath}
-          teamColor={teamColor}
+          teamColor={team.color}
+          removeDriverFn={() => removeDriverFn(secondDriver.id, team.id)}
         />
       ) : (
         <UnknownDriverCard />
