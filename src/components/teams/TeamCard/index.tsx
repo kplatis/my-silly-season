@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { Flex, Grid, Image } from "@mantine/core";
+import { Grid, Image } from "@mantine/core";
 import DriverCard from "@/components/drivers/DriverCard";
 import UnknownDriverCard from "@/components/drivers/UnknownDriverCard";
 import { AppDispatch } from "@/store/store";
@@ -25,6 +25,7 @@ export default function TeamCard({ team }: TeamCardProps) {
       justify="center"
       align="center"
       m="auto"
+      w="fit-content"
       p={15}
       style={{
         borderTop: `solid 3px ${team.color}`,
@@ -33,7 +34,7 @@ export default function TeamCard({ team }: TeamCardProps) {
         backgroundColor: "#D3D3D3",
       }}
     >
-      <Grid.Col span={{ base: 12, sm: 4 }}>
+      <Grid.Col span={{ base: 12, md: 12, lg: 12, xl: 4 }}>
         {firstDriver ? (
           <DriverCard
             name={firstDriver.name}
@@ -54,7 +55,7 @@ export default function TeamCard({ team }: TeamCardProps) {
           alt={`${team.name} logo`}
         />
       </Grid.Col>
-      <Grid.Col span={{ base: 12, sm: 4 }}>
+      <Grid.Col span={{ base: 12, md: 12, lg: 12, xl: 4 }}>
         {secondDriver ? (
           <DriverCard
             name={secondDriver.name}

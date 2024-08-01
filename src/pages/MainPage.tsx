@@ -13,7 +13,7 @@ export default function MainPage() {
       <Container fluid={true} py={30}>
         <Grid justify="center" gutter="lg">
           {currentGrid.map((team) => (
-            <Grid.Col key={team.id} span={{ base: 12, md: 6 }}>
+            <Grid.Col key={team.id} span={{ md: 12, lg: 6, xl: 6 }}>
               <TeamCard team={team} />
             </Grid.Col>
           ))}
