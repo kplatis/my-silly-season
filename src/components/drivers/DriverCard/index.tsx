@@ -17,8 +17,8 @@ export default function DriverCard({
         <Image src={imagePath} h={160} alt="No way!" />
       </Card.Section>
       <Center>
-        <Text fw={500} size="lg" mt="md">
-          {name}
+        <Text fw={800} size="lg" mt="md" c={"#FFF"}>
+          {name.toUpperCase()}
         </Text>
       </Center>
     </Card>

@@ -35,19 +35,19 @@ export const teams: Team[] = [
     id: 6,
     name: "Alpine",
     logoPath: "/public/alpine.png",
-    color: "#0090FF",
+    color: "#02192b",
   },
   {
     id: 7,
     name: "Williams",
     logoPath: "/public/williams.png",
-    color: "#005AFF",
+    color: "#041E42",
   },
   {
     id: 8,
     name: "Visa Cash App RB",
     logoPath: "/public/vcarb.png",
-    color: "#2B4562",
+    color: "#1535cb",
   },
 
   {
