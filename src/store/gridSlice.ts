@@ -20,8 +20,19 @@ const gridSlice = createSlice({
         team.drivers = team.drivers.filter((driver) => driver.id !== driverId);
       }
     },
+    addDriver: (
+      state,
+      action: PayloadAction<{ teamId: number; driverId: number }>
+    ) => {
+      const { teamId, driverId } = action.payload;
+      const team = state.find((team) => team.id === teamId);
+      const driver = drivers.find((driver) => driver.id == driverId);
+      if (team && driver) {
+        team.drivers.push(driver);
+      }
+    },
   },
 });
 
-export const { removeDriver } = gridSlice.actions;
+export const { removeDriver, addDriver } = gridSlice.actions;
 export default gridSlice.reducer;

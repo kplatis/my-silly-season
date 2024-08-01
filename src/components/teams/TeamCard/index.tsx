@@ -36,7 +36,7 @@ export default function TeamCard({ team }: TeamCardProps) {
           removeDriverFn={() => handleRemoveDriver(firstDriver.id, team.id)}
         />
       ) : (
-        <UnknownDriverCard />
+        <UnknownDriverCard teamId={team.id} />
       )}
 
       <Image h={60} w={60} src={team.logoPath} alt={`${team.name} logo`} />
@@ -48,7 +48,7 @@ export default function TeamCard({ team }: TeamCardProps) {
           removeDriverFn={() => handleRemoveDriver(secondDriver.id, team.id)}
         />
       ) : (
-        <UnknownDriverCard />
+        <UnknownDriverCard teamId={team.id} />
       )}
     </Flex>
   );

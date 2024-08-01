@@ -1,16 +1,24 @@
-import { Card, Center, Text, Image } from "@mantine/core";
+import { Card, Center, Text, Image, Space, Stack } from "@mantine/core";
+import SelectDriverButton from "./SelectDriverButton";
 
-export default function UnknownDriverCard() {
+type UnknownDriverCardProps = {
+  teamId: number;
+};
+
+export default function UnknownDriverCard({ teamId }: UnknownDriverCardProps) {
   return (
-    <Card shadow="sm" padding="xl" w={240} h={236}>
+    <Card shadow="sm" padding="xl" w={240}>
       <Card.Section>
-        <Image src={"/public/unknown.jpg"} h={160} alt="No way!" />
+        <Image src={"/public/unknown.jpg"} h={160} alt="Unknown driver" />
       </Card.Section>
-      <Center>
-        <Text fw={500} size="lg" mt="md">
-          ?
-        </Text>
-      </Center>
+      <Stack>
+        <Center>
+          <Text fw={800} size="lg" mt="md" c={"#FFF"}>
+            ?
+          </Text>
+        </Center>
+        <SelectDriverButton teamId={teamId} />
+      </Stack>
     </Card>
   );
 }
