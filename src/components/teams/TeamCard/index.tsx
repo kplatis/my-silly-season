@@ -1,16 +1,24 @@
+import { useDispatch } from "react-redux";
+import { Flex, Image } from "@mantine/core";
 import DriverCard from "@/components/drivers/DriverCard";
 import UnknownDriverCard from "@/components/drivers/UnknownDriverCard";
+import { AppDispatch } from "@/store/store";
 import { TeamWithDrivers } from "@/types/common";
-import { Flex, Image } from "@mantine/core";
+import { removeDriver } from "@/store/gridSlice";
 
 type TeamCardProps = {
   team: TeamWithDrivers;
-  removeDriverFn: (driverId: number, teamId: number) => void;
 };
 
-export default function TeamCard({ team, removeDriverFn }: TeamCardProps) {
+export default function TeamCard({ team }: TeamCardProps) {
   const firstDriver = team.drivers[0];
   const secondDriver = team.drivers[1];
+  const dispatch = useDispatch<AppDispatch>();
+
+  const handleRemoveDriver = (driverId: number, teamId: number) => {
+    dispatch(removeDriver({ teamId, driverId }));
+  };
+
   return (
     <Flex
       mih={50}
@@ -25,7 +33,7 @@ export default function TeamCard({ team, removeDriverFn }: TeamCardProps) {
           name={firstDriver.name}
           imagePath={firstDriver.imagePath}
           teamColor={team.color}
-          removeDriverFn={() => removeDriverFn(firstDriver.id, team.id)}
+          removeDriverFn={() => handleRemoveDriver(firstDriver.id, team.id)}
         />
       ) : (
         <UnknownDriverCard />
@@ -37,7 +45,7 @@ export default function TeamCard({ team, removeDriverFn }: TeamCardProps) {
           name={secondDriver.name}
           imagePath={secondDriver.imagePath}
           teamColor={team.color}
-          removeDriverFn={() => removeDriverFn(secondDriver.id, team.id)}
+          removeDriverFn={() => handleRemoveDriver(secondDriver.id, team.id)}
         />
       ) : (
         <UnknownDriverCard />
