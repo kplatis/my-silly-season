@@ -21,12 +21,20 @@ export default function TeamCard({ team }: TeamCardProps) {
 
   return (
     <Flex
+      w="fit-content"
       mih={50}
-      gap="md"
+      gap="xl"
       justify="center"
       align="center"
       direction="row"
       wrap="wrap"
+      p={15}
+      style={{
+        borderTop: `solid 3px ${team.color}`,
+        borderBottom: `solid 3px ${team.color}`,
+        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+        backgroundColor: "#D3D3D3",
+      }}
     >
       {firstDriver ? (
         <DriverCard

@@ -7,10 +7,10 @@ export default function MainPage() {
   const currentGrid = useSelector((state: RootState) => state.grid);
 
   return (
-    <Container fluid={true}>
-      <Grid>
+    <Container fluid={true} py={30}>
+      <Grid justify="center" gutter="lg">
         {currentGrid.map((team) => (
-          <Grid.Col key={team.id} span={4}>
+          <Grid.Col key={team.id} span={{ base: 12, md: 6, lg: 4 }}>
             <TeamCard team={team} />
           </Grid.Col>
         ))}
