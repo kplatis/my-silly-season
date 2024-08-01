@@ -1,23 +1,24 @@
+import { useDispatch } from "react-redux";
+import { Flex, Image } from "@mantine/core";
 import DriverCard from "@/components/drivers/DriverCard";
 import UnknownDriverCard from "@/components/drivers/UnknownDriverCard";
-import { Driver } from "@/types/drivers";
-import { Flex, Image } from "@mantine/core";
+import { AppDispatch } from "@/store/store";
+import { TeamWithDrivers } from "@/types/common";
+import { removeDriver } from "@/store/gridSlice";
 
 type TeamCardProps = {
-  teamLogo: string;
-  teamName: string;
-  teamColor: string;
-  firstDriver?: Driver;
-  secondDriver?: Driver;
+  team: TeamWithDrivers;
 };
 
-export default function TeamCard({
-  firstDriver,
-  secondDriver,
-  teamLogo,
-  teamName,
-  teamColor,
-}: TeamCardProps) {
+export default function TeamCard({ team }: TeamCardProps) {
+  const firstDriver = team.drivers[0];
+  const secondDriver = team.drivers[1];
+  const dispatch = useDispatch<AppDispatch>();
+
+  const handleRemoveDriver = (driverId: number, teamId: number) => {
+    dispatch(removeDriver({ teamId, driverId }));
+  };
+
   return (
     <Flex
       mih={50}
@@ -31,21 +32,23 @@ export default function TeamCard({
         <DriverCard
           name={firstDriver.name}
           imagePath={firstDriver.imagePath}
-          teamColor={teamColor}
+          teamColor={team.color}
+          removeDriverFn={() => handleRemoveDriver(firstDriver.id, team.id)}
         />
       ) : (
-        <UnknownDriverCard />
+        <UnknownDriverCard teamId={team.id} />
       )}
 
-      <Image h={60} w={60} src={teamLogo} alt={`${teamName} logo`} />
+      <Image h={60} w={60} src={team.logoPath} alt={`${team.name} logo`} />
       {secondDriver ? (
         <DriverCard
           name={secondDriver.name}
           imagePath={secondDriver.imagePath}
-          teamColor={teamColor}
+          teamColor={team.color}
+          removeDriverFn={() => handleRemoveDriver(secondDriver.id, team.id)}
         />
       ) : (
-        <UnknownDriverCard />
+        <UnknownDriverCard teamId={team.id} />
       )}
     </Flex>
   );
