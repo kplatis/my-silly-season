@@ -14,14 +14,20 @@ export default function DriverCard({
   removeDriverFn,
 }: DriverCardProps) {
   return (
-    <Card shadow="sm" padding="xl" bg={teamColor} m="auto" w={200} h={250}>
+    <Card shadow="sm" padding="xl" bg={teamColor} m="auto" w={150} h={250}>
       <Card.Section>
         <Image src={imagePath} h={100} alt="No way!" />
       </Card.Section>
-      <Text fw={800} size="lg" mt="md" c={"#FFF"} ta="center">
-        {name.toUpperCase()}
+      <Text fw={800} size="lg" mt="md" c={"#FFF"} ta="center" tt="capitalize">
+        {name}
       </Text>
-      <Button color="blue" mt="md" radius="md" onClick={() => removeDriverFn()}>
+      <Button
+        color="blue"
+        mt="md"
+        radius="md"
+        size="compact-sm"
+        onClick={() => removeDriverFn()}
+      >
         Remove
       </Button>
     </Card>

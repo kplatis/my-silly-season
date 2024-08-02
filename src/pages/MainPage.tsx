@@ -27,7 +27,11 @@ export default function MainPage() {
           </Flex>
           <Grid justify="center" gutter="lg">
             {currentGrid.map((team) => (
-              <Grid.Col key={team.id} span={{ md: 12, lg: 6, xl: 6 }}>
+              <Grid.Col
+                key={team.id}
+                span={{ md: 12, lg: 6, xl: 4 }}
+                w="fit-content"
+              >
                 <TeamCard team={team} />
               </Grid.Col>
             ))}
